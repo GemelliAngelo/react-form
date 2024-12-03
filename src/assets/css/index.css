@@ -4,7 +4,33 @@
   padding: 0;
 }
 
+.container {
+  max-width: 1000px;
+  padding: 0 10px;
+  margin: auto;
+}
+
 header {
   background-color: aquamarine;
-  padding: 50px;
+  padding: 30px;
+}
+
+.d-flex {
+  display: flex;
+  padding: 30px;
+}
+
+.form-input {
+  padding: 10px 20px;
+  width: fit-content;
+  font-size: 1rem;
+}
+
+.form-button {
+  padding: 10px 20px;
+  margin-left: 20px;
+  background-color: #0558c5;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
