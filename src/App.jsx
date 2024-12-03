@@ -1,24 +1,27 @@
 import { useState } from "react";
 
 function App() {
-  const [addTitles, setAddTitles] = useState("");
+  const [Titles, setTitles] = useState("");
   const [posts, setPosts] = useState([]);
 
   const handleInputChange = (e) => {
-    setAddTitles(e.target.value);
+    setTitles(e.target.value);
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    if (!addTitles) {
+    if (!Titles) {
       alert("Inserisci un titolo valido");
       return;
     }
 
-    setPosts([...posts, { name: addTitles }]);
-    setAddTitles("");
-    console.log(addTitles);
+    setPosts([...posts, { name: Titles }]);
+    setTitles("");
+  };
+
+  const handleDelete = (name) => {
+    setPosts([...posts.filter((post) => post.name !== name)]);
   };
 
   return (
@@ -35,16 +38,23 @@ function App() {
                 type="text"
                 className="form-input"
                 name="blog-title"
-                value={addTitles}
+                value={Titles}
               />
               <button className="form-button">AGGIUNGI</button>
             </form>
+
             <div className="d-flex">
               <ul className="titles-list">
                 {posts.map((post) => (
                   <li className="titles-list-item" key={post.name}>
                     {post.name}
-                    <i className="fa-solid fa-trash"></i>
+                    <div>
+                      <i class="fa-solid fa-pen"></i>
+                      <i
+                        onClick={() => handleDelete(post.name)}
+                        className="fa-solid fa-trash"
+                      ></i>
+                    </div>
                   </li>
                 ))}
               </ul>
