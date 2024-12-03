@@ -44,6 +44,7 @@ function App() {
                 {posts.map((post) => (
                   <li className="titles-list-item" key={post.name}>
                     {post.name}
+                    <i className="fa-solid fa-trash"></i>
                   </li>
                 ))}
               </ul>
