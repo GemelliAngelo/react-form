@@ -10,6 +10,12 @@ function App() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+
+    if (!addTitles) {
+      alert("Inserisci un titolo valido");
+      return;
+    }
+
     setPosts([...posts, { name: addTitles }]);
     setAddTitles("");
     console.log(addTitles);
